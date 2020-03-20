@@ -8,7 +8,6 @@ import java.io.PrintWriter;
 // Main method of the program
 // makes a menu automatically with all ifs
 // uses print method to print to file
-//Hi
 public class IfsStlFile {
 
     public static void main(String[] args) {
