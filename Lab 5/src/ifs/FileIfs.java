@@ -65,58 +65,30 @@ public class FileIfs extends AffineTransform {
 
     }
 
-    
-    /** 
-     * @return String
-     */
     public String getName() {
         return name;
     }
 
-    
-    /** 
-     * @return double[][]
-     */
     public double[][] getAffine() {
         return affine;
     }
 
-    
-    /** 
-     * @return double
-     */
     public double getScale() {
         return scale;
     }
 
-    
-    /** 
-     * @return int
-     */
     public int getHeight() {
         return height;
     }
 
-    
-    /** 
-     * @return int
-     */
     public int getWidth() {
         return width;
     }
 
-    
-    /** 
-     * @return int
-     */
     public int getXoffset() {
         return xOffset;
     }
 
-    
-    /** 
-     * @return int
-     */
     public int getYoffset() {
         return yOffset;
     }

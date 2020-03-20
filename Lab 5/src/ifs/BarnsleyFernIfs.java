@@ -6,52 +6,30 @@ private double affine [][] = {{ 0, 0, 0, 0.16, 0, 0, 0.01 }, { 0.85, 0.04, -0.04
 private int height=503,width=1019,xOffset=228,yOffset=10;
 private double scale=100;
 
-
-/** 
- * @return String
- */
 public String getName(){
     return "Barnsley Fern";
 }
 
-/** 
- * @return double[][]
- */
 public double[][] getAffine(){
     return affine;
 }
 
-/** 
- * @return double
- */
 public double getScale(){
     return scale;
 }
 
-/** 
- * @return int
- */
 public int getHeight(){
     return height;
 }
 
-/** 
- * @return int
- */
 public int getWidth(){
     return width;
 }
 
-/** 
- * @return int
- */
 public int getXoffset(){
     return xOffset;
 }
 
-/** 
- * @return int
- */
 public int getYoffset(){
     return yOffset;
 }

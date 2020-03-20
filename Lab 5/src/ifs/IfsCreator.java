@@ -2,11 +2,7 @@ package ifs;
 
 // Creates ifs from matrix
 public class IfsCreator{
-    
-    /** 
-     * @param affineIfs
-     * @return int[][]
-     */
+
     public static int[][] generateIfs(AffineTransform affineIfs){
         int height = affineIfs.getHeight(), width = affineIfs.getWidth(), xOffset = affineIfs.getXoffset(), yOffset = affineIfs.getYoffset(), row=0, view [][] = new int[width][height];
         double matrix [][] = affineIfs.getAffine(), scale = affineIfs.getScale(), x=0, y=0;
@@ -30,17 +26,13 @@ public class IfsCreator{
         return view;
     }
 
-    
-    /** 
-     * @return AffineTransform[]
-     */
     // Returns all affines used in program
     public static AffineTransform [] getTransforms(){
         AffineTransform matrix [] = new AffineTransform [4];
         matrix[0] = new SierpinskiIfs();
         matrix[1] = new BarnsleyFernIfs();
         matrix[2] = new MapleIfs();
-        matrix[3] = new FileIfs("GoldenDragon.ifs");
+        matrix[3] = new FileIfs("Lab 5//GoldenDragon.ifs");
         return matrix;
     }
 }

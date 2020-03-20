@@ -4,52 +4,31 @@ public class MapleIfs extends AffineTransform{
     { 0.47, 0.47, -0.49, 0.45, 0.74, 1.62, 0.35}, { 0.51, 0.00, 0.00, 0.49, -1.62, -0.02, 0.20} };
     private int height=702,width=885,xOffset=340,yOffset=445;
     private double scale=100;
-    
-    /** 
-     * @return String
-     */
+
     public String getName(){
         return "Maple Leaf";
     }
-    
-    /** 
-     * @return double[][]
-     */
+
     public double[][] getAffine(){
         return affine;
     }
-    
-    /** 
-     * @return double
-     */
+
     public double getScale(){
         return scale;
     }
-    
-    /** 
-     * @return int
-     */
+
     public int getHeight(){
         return height;
     }
-    
-    /** 
-     * @return int
-     */
+
     public int getWidth(){
         return width;
     }
-    
-    /** 
-     * @return int
-     */
+
     public int getXoffset(){
         return xOffset;
     }
     
-    /** 
-     * @return int
-     */
     public int getYoffset(){
         return yOffset;
     }

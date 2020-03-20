@@ -14,11 +14,6 @@ public class Solid{
         this.name=name;
     }
 
-    
-    /** 
-     * @param facet
-     * @return boolean
-     */
     // Adds facets to list
     public boolean addFacet(Facet facet){
         try {
@@ -28,11 +23,7 @@ public class Solid{
             return false;
         }
     }
-    
-    /** 
-     * @param vertices
-     * @return boolean
-     */
+
     // Makes vertices into facets then adds to list
     public boolean addFacet(Vertex... vertices) {
 		if(vertices.length<3){
@@ -52,20 +43,12 @@ public class Solid{
 			}
 			return true;
     }
-    
-    
-    /** 
-     * @param printWriter
-     */
+
     // Prints to file
     public void print(PrintWriter printWriter){
         printWriter.println(this);
     }
 
-    
-    /** 
-     * @return String
-     */
     // What the solid object will print when called
     public String toString(){
         StringBuilder facetString = new StringBuilder();

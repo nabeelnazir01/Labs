@@ -12,22 +12,11 @@ public class Vertex {
         this.z=z;
     }
 
-    
-    /** 
-     * @return String
-     */
     // What the vertex object will print when called
     public String toString(){
         return df.format(x)+" "+df.format(y)+" "+df.format(z);
     }
 
-    
-    /** 
-     * @param v1
-     * @param v2
-     * @param v3
-     * @return Vertex
-     */
     // Calculate normal of 3 vertices
     public static Vertex calcNormal(Vertex v1,Vertex v2,Vertex v3){
         double a1 = v2.x - v1.x; 

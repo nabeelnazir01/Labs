@@ -13,10 +13,6 @@ public class Facet{
         normal=Vertex.calcNormal(v1,v2,v3);
     }
 
-    
-    /** 
-     * @return String
-     */
     // What the facet object will print when called
     public String toString(){
 		return "facet normal "+normal+"\n outer loop"+"\n  vertex "+v1+"\n  vertex "+v2+"\n  vertex "+v3+"\n endloop"+"\nendfacet\n";

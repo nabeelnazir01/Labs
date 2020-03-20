@@ -9,10 +9,7 @@ import java.io.PrintWriter;
 // makes a menu automatically with all ifs
 // uses print method to print to file
 public class IfsStlFile {
-    
-    /** 
-     * @param args
-     */
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         AffineTransform matrix[] = IfsCreator.getTransforms();

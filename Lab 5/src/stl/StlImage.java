@@ -9,12 +9,6 @@ public class StlImage{
         this.thickScale = max-min;
     }
 
-    
-    /** 
-     * @param matrix
-     * @param name
-     * @return Solid
-     */
     //Creates vertex then returns the solid
     public Solid createSolid(int[][] matrix, String name){
         maxValue = matrix[0][0];
@@ -38,13 +32,6 @@ public class StlImage{
             return solid;
     }
 
-    
-    /** 
-     * @param x
-     * @param y
-     * @param z
-     * @return Vertex
-     */
     //Creates vertex
     private Vertex createIfsVertex(double x, double y, double z){
         return new Vertex(x*this.scale, y*this.scale, minThick+thickScale*Math.sqrt(z/maxValue));
