@@ -32,7 +32,7 @@ public class IfsCreator{
         matrix[0] = new SierpinskiIfs();
         matrix[1] = new BarnsleyFernIfs();
         matrix[2] = new MapleIfs();
-        matrix[3] = new FileIfs("Lab 5//GoldenDragon.ifs");
+        matrix[3] = new FileIfs("GoldenDragon.ifs");
         return matrix;
     }
 }
