@@ -61,8 +61,6 @@ public class FileIfs extends AffineTransform {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        System.out.println(name + " " + height + " " + width + " " + xOffset + " " + yOffset + " " + scale);
-
     }
 
     public String getName() {
