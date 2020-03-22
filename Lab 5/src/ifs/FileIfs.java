@@ -1,10 +1,11 @@
 package ifs;
 
+import java.util.ArrayList;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+// import java.util.regex.Matcher;
+// import java.util.regex.Pattern;
 
 public class FileIfs extends AffineTransform {
 
@@ -38,24 +39,38 @@ public class FileIfs extends AffineTransform {
                     scale = Double.parseDouble(line.substring(6));
                 }
                 if (line.contains("affine")) {
-                    Pattern r = Pattern.compile("([-+]?[0-9]+\\.+[0-9]+)");
                     int rows = Integer.parseInt(line.substring(7));
-                    int column = 0;
-                    for (int e = 0; e < rows; e++) {
-                        line = scan.nextLine();
-                        if (e == 0) {
-                            Matcher m = r.matcher(line);
-                            while (m.find()) {
-                                column++;
-                            }
-                            affine = new double[rows][column];
-                        }
-                        Matcher m = r.matcher(line);
-                        for (int i = 0; m.find(); i++) {
-                            affine[e][i] = Double.parseDouble(m.group(1));
+                    ArrayList<Double> affineNum = new ArrayList<Double>();
+                    int count = 0;
+                    while (scan.hasNextDouble()) {
+                        affineNum.add(scan.nextDouble());
+                    }
+                    int column = affineNum.size() / rows;
+                    affine = new double[rows][column];
+                    for (int i = 0; i < rows; i++) {
+                        for (int e = 0; e < column; e++) {
+                            affine[i][e] = affineNum.get(count);
+                            count++;
                         }
                     }
-
+                    // Regex method
+                    // Pattern r = Pattern.compile("([-+]?[0-9]+\\.+[0-9]+)");
+                    // int rows = Integer.parseInt(line.substring(7));
+                    // int column = 0;
+                    // for (int e = 0; e < rows; e++) {
+                    // line = scan.nextLine();
+                    // if (e == 0) {
+                    // Matcher m = r.matcher(line);
+                    // while (m.find()) {
+                    // column++;
+                    // }
+                    // affine = new double[rows][column];
+                    // }
+                    // Matcher m = r.matcher(line);
+                    // for (int i = 0; m.find(); i++) {
+                    // affine[e][i] = Double.parseDouble(m.group(1));
+                    // }
+                    // }
                 }
             }
         } catch (FileNotFoundException e) {
