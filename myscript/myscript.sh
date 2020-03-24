@@ -4,13 +4,16 @@
 # 040974403
 # Operating Systems Fund(GNU/Linux)
 # Section 300
-# Gets input from user for marks and gets the average and letter mark.
+# Gets
+
 choice="n"
 while [ $choice != "Q" ] && [ $choice != "q" ]; do
-    printf "Choose one of the following options:\n"
-    printf "A to Create a user account\nB to Delete a user account
+clear
+printf "Choose one of the following options:
+A to Create a user account\nB to Delete a user account
 C to Change Supplementary Group for a user account
 D to Change Initial Group for a user account
+E Change default login shell for a user account
 F to Change account expiration date for a user account\nQ to Quit\n"
 
 read -p 'What would you like to do?: ' choice
@@ -20,26 +23,29 @@ read -p 'Username: ' user
 read -p 'Home: ' Home
 read -p 'Default shell: ' shell
 useradd -m -d $Home -s $shell -U $user
-fi
-if [ $choice = "B" ] || [ $choice = "b" ]; then
+elif [ $choice = "B" ] || [ $choice = "b" ]; then
 read -p 'Username: ' user
 userdel -r $user
-fi
-if [ $choice = "C" ] || [ $choice = "c" ]; then
+elif [ $choice = "C" ] || [ $choice = "c" ]; then
 read -p 'Username: ' user
 read -p 'Group: ' group
 usermod -G $group $user
+elif [ $choice = "D" ] || [ $choice = "d" ]; then
+read -p 'Username: ' user
+read -p 'Group: ' group
+usermod -g $group $user
+elif [ $choice = "E" ] || [ $choice = "e" ]; then
+read -p 'Username: ' user
+read -p 'Shell: ' shell
+usermod -s $shell $user
+elif [ $choice = "F" ] || [ $choice = "f" ]; then
+read -p 'Username: ' user
+read -p 'date: ' date
+chage -E $date $user
+elif [ $choice != "q" ] && [ $choice != "Q" ]; then
+echo "Input is wrong"
 fi
-if [ $choice = "D" ] || [ $choice = "d" ]; then
-echo hi
-fi
-if [ $choice = "E" ] || [ $choice = "e" ]; then
-echo hi
-fi
-if [ $choice = "F" ] || [ $choice = "f" ]; then
-echo hi
-else
-printf "Input is wrong\n"
-fi
-
+sleep 3
 done
+
+echo Bye!
