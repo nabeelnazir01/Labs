@@ -21,26 +21,53 @@ public class FileIfs extends AffineTransform {
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
                 if (line.contains("name")) {
-                    name = line.substring(5);
+                    // String [] find = line.split("name\\s+");
+                    // name = find[1];
+                    Scanner scanner = new Scanner(line);
+                    scanner.next();
+                    name = scanner.nextLine().trim();
                 }
-                if (line.contains("height")) {
-                    height = Integer.parseInt(line.substring(7));
+                else if (line.contains("height")) {
+                    // String [] find = line.split("\\s+");
+                    // height = Integer.valueOf(find[1]);
+                    Scanner scanner = new Scanner(line);
+                    scanner.next();
+                    height = scanner.nextInt();
                 }
-                if (line.contains("width")) {
-                    width = Integer.parseInt(line.substring(6));
+                else if (line.contains("width")) {
+                    // String [] find = line.split("\\s+");
+                    // width = Integer.valueOf(find[1]);
+                    Scanner scanner = new Scanner(line);
+                    scanner.next();
+                    width = scanner.nextInt();
                 }
-                if (line.contains("xOffset")) {
-                    xOffset = Integer.parseInt(line.substring(8));
+                else if (line.contains("xOffset")) {
+                    // String [] find = line.split("\\s+");
+                    // xOffset = Integer.valueOf(find[1]);
+                    Scanner scanner = new Scanner(line);
+                    scanner.next();
+                    xOffset = scanner.nextInt();
                 }
-                if (line.contains("yOffset")) {
-                    yOffset = Integer.parseInt(line.substring(8));
+                else if (line.contains("yOffset")) {
+                    // String [] find = line.split("\\s+");
+                    // yOffset = Integer.valueOf(find[1]);
+                    Scanner scanner = new Scanner(line);
+                    scanner.next();
+                    yOffset = scanner.nextInt();
                 }
-                if (line.contains("scale")) {
-                    scale = Double.parseDouble(line.substring(6));
+                else if (line.contains("scale")) {
+                    // String [] find = line.split("\\s+");
+                    // scale = Double.valueOf(find[1]);
+                    Scanner scanner = new Scanner(line);
+                    scanner.next();
+                    scale = scanner.nextDouble();
                 }
-                if (line.contains("affine")) {
-                    int rows = Integer.parseInt(line.substring(7));
-                    ArrayList<Double> affineNum = new ArrayList<Double>();
+                else if (line.contains("affine")) {
+                    // int rows = Integer.parseInt(line.substring(7));
+                    Scanner scanner = new Scanner(line);
+                    scanner.next();
+                    int rows = scanner.nextInt();
+                    ArrayList <Double> affineNum = new ArrayList<Double>();
                     int count = 0;
                     while (scan.hasNextDouble()) {
                         affineNum.add(scan.nextDouble());
