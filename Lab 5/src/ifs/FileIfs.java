@@ -1,6 +1,7 @@
 package ifs;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -46,17 +47,18 @@ public class FileIfs extends AffineTransform {
                 else if (line.contains("affine")) {
                     scanLine.next();
                     int rows = scanLine.nextInt(); //Grabs amount of rows
-                    ArrayList <Double> affineNum = new ArrayList<Double>(); //ArrayList for gathering value in file
-                    int count = 0;
-                    while (scan.hasNextDouble()) {
-                        affineNum.add(scan.nextDouble()); //Adds the doubles it finds to ArrayList
-                    }
-                    int column = affineNum.size() / rows; //Finds column size
+                    line = scan.nextLine();
+                    scanLine = new Scanner(line);
+                    int column = line.trim().split("\\s+").length;
+                    System.out.println(column);
                     affine = new double[rows][column];
-                    for (int i = 0; i < rows; i++) { //Adds values from arraylist to affine 2d array properly
-                        for (int e = 0; e < column; e++) {
-                            affine[i][e] = affineNum.get(count);
-                            count++;
+                    for(int i = 0;i < rows;i++){
+                        for(int e = 0;e < column;e++){
+                            // System.out.println(scanLine.nextDouble());
+                            affine[i][e] = scanLine.nextDouble();
+                        }
+                        if(i<rows-1){
+                            scanLine = new Scanner(scan.nextLine());
                         }
                     }
                 }
