@@ -13,8 +13,8 @@ public class FileIfs extends AffineTransform {
     private String name;
 
     public FileIfs(String fileName) {
-        File file = new File(fileName);
         try {
+            File file = new File(fileName);
             Scanner scan = new Scanner(file);
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
