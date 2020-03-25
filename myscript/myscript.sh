@@ -4,7 +4,7 @@
 # 040974403
 # Operating Systems Fund(GNU/Linux)
 # Section 300
-# Gets
+# Modifies, adds and deletes user accounts
 
 choice="n"
 while [ $choice != "Q" ] && [ $choice != "q" ]; do
@@ -20,9 +20,9 @@ read -p 'What would you like to do?: ' choice
 
 if [ $choice = "A" ] || [ $choice = "a" ]; then
 read -p 'Username: ' user
-read -p 'Home: ' Home
+read -p 'Home: ' home
 read -p 'Default shell: ' shell
-useradd -m -d $Home -s $shell -U $user
+useradd -m -d $home -s $shell -U $user
 elif [ $choice = "B" ] || [ $choice = "b" ]; then
 read -p 'Username: ' user
 userdel -r $user
@@ -42,8 +42,10 @@ elif [ $choice = "F" ] || [ $choice = "f" ]; then
 read -p 'Username: ' user
 read -p 'date: ' date
 chage -E $date $user
-elif [ $choice != "q" ] && [ $choice != "Q" ]; then
+elif [ $choice != "Q" ] && [ $choice != "q" ]; then
 echo "Input is wrong"
+else
+continue
 fi
 sleep 3
 done
