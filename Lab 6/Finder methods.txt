@@ -1,0 +1,25 @@
+Regex method
+Pattern r = Pattern.compile("([-+]?[0-9]+\\.+[0-9]+)");
+int rows = Integer.parseInt(line.substring(7));
+int column = 0;
+for (int e = 0; e < rows; e++) {
+line = scan.nextLine();
+if (e == 0) {
+Matcher m = r.matcher(line);
+while (m.find()) {
+column++;
+}
+affine = new double[rows][column];
+}
+Matcher m = r.matcher(line);
+for (int i = 0; m.find(); i++) {
+affine[e][i] = Double.parseDouble(m.group(1));
+}
+}
+
+Substring method
+int rows = Integer.parseInt(line.substring(7));
+
+Split method
+String [] find = line.split("\\s+");
+scale = Double.valueOf(find[1]);
