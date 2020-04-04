@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class FileIfs extends AffineTransform {
+public class FileIfs implements AffineTransform {
 
     private double[][] affine;
     private int height, width, xOffset, yOffset;
@@ -55,8 +55,7 @@ public class FileIfs extends AffineTransform {
                     }
                 }
             }
-        } 
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
