@@ -10,7 +10,7 @@ public class SolidTest {
         Solid s2 = new Solid();
         Vertex v1 = new Vertex(0,1,2);
         assertEquals(s1.addFacet(v1), false);
-        assertEquals(s2.toString(), s1.toString());
+        assertEquals(s1.toString(), s2.toString());
     }
 
     @Test
