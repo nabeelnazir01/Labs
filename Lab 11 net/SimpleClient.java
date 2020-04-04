@@ -6,7 +6,7 @@ public class SimpleClient{
     Socket client;
     DataInputStream input;
     try {
-        client = new Socket("localhost",1254);
+        client = new Socket("192.168.1.15",1254);
         input = new DataInputStream(client.getInputStream());
         BufferedReader read = new BufferedReader(new InputStreamReader(input));
         System.out.println(read.readLine());
