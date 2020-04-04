@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Lab 9
+# Lab 9
 # Nabeel Nazir
 # 040974403
 # Operating Systems Fund(GNU/Linux)
