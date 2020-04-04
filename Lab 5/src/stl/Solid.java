@@ -29,19 +29,10 @@ public class Solid{
 		if(vertices.length<3){
 			return false;
 		}
-			for(int i = 0; i < vertices.length-1; i += 3) {
-				if(vertices.length % 3 == 1) {
-					addFacet(new Facet(vertices[i], vertices[i+2], vertices[i+3]));
-				}
-				else if(vertices.length % 3 == 2) {
-                    addFacet(new Facet(vertices[i], vertices[i+2], vertices[i+3]));
-					addFacet(new Facet(vertices[i], vertices[i+3], vertices[i+4]));
-				}
-				else {
-					addFacet(new Facet(vertices[i], vertices[i+1], vertices[i+2]));
-				}
-			}
-			return true;
+        for(int i = 0; i < vertices.length-2; i++) {
+            addFacet(new Facet(vertices[0], vertices[i+1], vertices[i+2]));
+        }
+        return true;
     }
 
     // Prints to file
