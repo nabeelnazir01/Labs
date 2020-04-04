@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class FileIfs implements AffineTransform {
+public class FileIfs extends AffineTransform {
 
     private double[][] affine;
     private int height, width, xOffset, yOffset;
@@ -47,21 +47,16 @@ public class FileIfs implements AffineTransform {
                 else if (line.contains("affine")) {
                     scanLine.next();
                     int rows = scanLine.nextInt(); //Grabs amount of rows
-                    line = scan.nextLine();
-                    scanLine = new Scanner(line);
-                    int column = line.trim().split("\\s+").length;
-                    affine = new double[rows][column];
+                    affine = new double[rows][7];
                     for(int i = 0;i < rows;i++){
-                        for(int e = 0;e < column;e++){
-                            affine[i][e] = scanLine.nextDouble();
-                        }
-                        if(i<rows-1){
-                            scanLine = new Scanner(scan.nextLine());
+                        for(int e = 0;e < 7;e++){
+                            affine[i][e] = scan.nextDouble();
                         }
                     }
                 }
             }
-        } catch (FileNotFoundException e) {
+        } 
+        catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
