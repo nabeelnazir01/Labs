@@ -53,7 +53,6 @@ public class FileIfs implements AffineTransform {
                     affine = new double[rows][column];
                     for(int i = 0;i < rows;i++){
                         for(int e = 0;e < column;e++){
-                            // System.out.println(scanLine.nextDouble());
                             affine[i][e] = scanLine.nextDouble();
                         }
                         if(i<rows-1){
