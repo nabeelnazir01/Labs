@@ -10,10 +10,8 @@
 user='p'
 
 if [[ $# -eq 3 ]] && [[ $1 =~ ^[+-]?[0-9]+$ ]] && [[ $3 =~ ^[+-]?[0-9]+$ ]]; then
-	if [ $2 == + ]; then
-		echo The sum of $1 plus $3 equals $(($1+$3))
-	elif [ $2 == - ]; then
-		echo The sum of $1 minus $3 equals $(($1-$3))
+	if [ $2 == + ] || [ $2 == - ]; then
+		echo $1 $2 $3 equals $(($1$2$3))
 	else
 		echo The second parameter is not a + or a -!
 	fi
