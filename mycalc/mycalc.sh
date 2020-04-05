@@ -9,9 +9,17 @@
 
 user='p'
 
+Math () {
+	if [ $2 == + ]; then
+		echo The sum of $1 plus $3 equals $(($1$2$3))
+	else
+		echo The difference of $1 minus $3 equals $(($1$2$3))
+	fi
+}
+
 if [[ $# -eq 3 ]] && [[ $1 =~ ^[+-]?[0-9]+$ ]] && [[ $3 =~ ^[+-]?[0-9]+$ ]]; then
 	if [ $2 == + ] || [ $2 == - ]; then
-		echo $1 $2 $3 equals $(($1$2$3))
+		Math $1 $2 $3
 	else
 		echo The second parameter is not a + or a -!
 	fi
@@ -34,7 +42,7 @@ elif [ $# -eq 0 ]; then
 					clear
 					continue
 				fi
-				echo Answer is $(($first$second$third))
+				Math $first $second $third
 				sleep 3
 				clear
 				continue
