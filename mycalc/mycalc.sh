@@ -7,12 +7,12 @@
 # Section 300
 # Calculator for plus or minus. Can take in parameters also.
 
-add () { # Addition function
-	echo The sum of $1 plus $2 equals $(($1+$2))
+add() { # Addition function
+	echo The sum of $1 plus $2 equals $(($1 + $2))
 }
 
-subtract () { # Subtraction function
-	echo The difference of $1 minus $2 equals $(($1-$2))
+subtract() { # Subtraction function
+	echo The difference of $1 minus $2 equals $(($1 - $2))
 }
 
 if [[ $# -eq 3 ]] && [[ $1 =~ ^[+-]?[0-9]+$ ]] && [[ $3 =~ ^[+-]?[0-9]+$ ]]; then # Uses regex to check if integer or not
@@ -72,6 +72,6 @@ elif [ $# -eq 0 ]; then
 	done
 else # If not right number of parameters or not integers
 	clear
-	echo Wrong parameters!	
+	echo Wrong parameters!
 fi
 echo Bye!
