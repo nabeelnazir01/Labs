@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 /**
  * This class contains the dynamically allocated array and it's processing
- * Student Name: Student Number: Course: CST8130 - Data Structures :
+ * Student Name: Nabeel Nazir Student Number: 040974403 Course: CST8130 - Data Structures :
  * CET-CS-Level 3
  * 
  * @author/Professor James Mwangi PhD.
@@ -10,7 +10,6 @@ import java.util.Scanner;
  * @author Melissa Sienkiewicz
  */
 
-// Fix white symbols in menu
 public class Lab1 {
 
 	/**
