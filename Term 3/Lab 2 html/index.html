@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Elements of HTML5</title>
+    <style>
+        a {
+            color: lightskyblue;
+        }
+
+        table,
+        th {
+            border: 1px solid white;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body {
+            background-color: rgb(18, 18, 18);
+            color: white;
+            text-align: center;
+        }
+
+        ul,
+        ol {
+            margin: 0 auto;
+            display: table;
+            text-align: left;
+            padding: 0;
+        }
+
+        hr {
+            background-color: white;
+            width: 95%;
+        }
+
+        h3 {
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Elements of HTML5</h1>
+    <p><strong>1. Heading Element:</strong></p>
+    <ul></ul>
+    <li>Syntax:</li>
+    <p>&lt;h1&gt;This is heading 1&lt;/h1&gt;<br>
+        &lt;h2&gt;This is heading 2&lt;/h2&gt;<br>
+        &lt;h3&gt;This is heading 3&lt;/h3&gt;</p>
+    <li>Output:</li>
+    <h1>This is heading 1</h1>
+    <h2>This is heading 2</h2>
+    <h3>This is heading 3</h3>
+    </ul>
+    <hr>
+    <p><strong>2. Paragraph Element:</strong></p>
+    <ul>
+        <li>Syntax:</li>
+        <p>&lt;p&gt;This is a paragraph.&lt;/p&gt;</p>
+        <li>Output:</li>
+        <p>This is a paragraph.</p>
+    </ul>
+    <hr>
+    <p><strong>3. Line Break Element:</strong></p>
+    <ul>
+        <li>Syntax:</li>
+        <p>&lt;p&gt;a&lt;br&gt;p&lt;br&gt;p&lt;br&gt;l&lt;br&gt;e&lt;br&gt;s&lt;/p&gt;</p>
+        <li>Output:</li>
+        <p>a<br>p<br>p<br>l<br>e<br>s</p>
+    </ul>
+    <hr>
+    <p><strong>4. Blockquote Element:</strong></p>
+    <ul>
+        <li>Syntax:</li>
+        <p>&lt;blockquote&gt;"This is a quote."&lt;/blockquote&gt;</p>
+        <li>Output:</li>
+        <blockquote>"This is a quote."</blockquote>
+    </ul>
+    <hr>
+    <p><strong>5. Phrase Elements:</strong></p>
+    <ul>
+        <li>Syntax:</li>
+        <p>&lt;b&gt;bold&lt;/b&gt; text.<br>&lt;em&gt;emphasized&lt;/em&gt; text.<br>&lt;i&gt;italicized&lt;/i&gt;
+            text.<br>&lt;mark&gt;mark&lt;/mark&gt; text.<br>&lt;small&gt;small&lt;/small&gt;
+            text.<br>&lt;strong&gt;strong&lt;/strong&gt; text.<br>&lt;sub&gt;sub&lt;/sub&gt;
+            text.<br>&lt;sup&gt;sup&lt;/sup&gt; text.</p>
+        <li>Output:</li>
+        <b>bold</b> text. <em>emphasized</em> text. <i>italicized</i> text. <mark>mark</mark> text. <small>small</small>
+        text. <strong>strong</strong> text. <sub>sub</sub> text. <sup>sup</sup> text.
+    </ul>
+    <hr>
+    <p><strong>6. Lists:</strong></p>
+    <ul>
+        <h3>a) Lists Unordered</h3>
+        <li>Syntax:</li>
+        <p>
+            &lt;ul&gt;<br>
+            &lt;li&gt;example a&lt;/li&gt;<br>
+            &lt;li&gt;example b&lt;/li&gt;<br>
+            &lt;/ul&gt;</p>
+        <li>Output:</li>
+        <li>example a</li>
+        <li>example b</li>
+
+        <h3>b) Lists Ordered</h3>
+        <li>Syntax:</li>
+        <p>
+            &lt;ol&gt;<br>
+            &lt;li&gt;example a&lt;/li&gt;<br>
+            &lt;li&gt;example b&lt;/li&gt;<br>
+            &lt;/ol&gt;</p>
+        <li>Output:</li>
+        <ol>
+            <li>example a</li>
+            <li>example b</li>
+        </ol>
+        <h3>c) Description list</h3>
+        <li>Syntax:</li>
+        <p>
+            &lt;dl&gt;<br>
+            &lt;dt&gt;Triangle&lt;/dt&gt;<br>
+            &lt;dd&gt;Pyramid&lt;/dd&gt;<br>
+            &lt;dt&gt;Square&lt;/dt&gt;<br>
+            &lt;dd&gt;Cube&lt;/dd&gt;<br>
+            &lt;/dl&gt;</p>
+        <li>Output:</li>
+        <dl>
+            <dt>Triangle</dt>
+            <dd>Pyramid</dd>
+            <dt>Square</dt>
+            <dd>Cube</dd>
+        </dl>
+        <li>example a</li>
+        <li>example b</li>
+    </ul>
+    <hr>
+    <p><strong>7. Special Characters:</strong></p>
+    <ul>
+        <li>Syntax:</li>
+        <p>&lt;p&gt;<br>
+            "copyright":&amp;copy &lt;br&gt;<br>
+            "less":&amp;lt &lt;br&gt;<br>
+            "greater":&amp;gt &lt;br&gt;<br>
+            "ampersand":&amp;amp <br>
+            &lt;/p&gt;
+        </p>
+        <li>Output:</li>
+        <p>
+            "copyright":&copy <br>
+            "less":&lt <br>
+            "greater":&gt <br>
+            "ampersand":&amp
+        </p>
+    </ul>
+    <hr>
+    <p><strong>8. Anchor Element:</strong></p>
+    <ul>
+        <h3>a) Absolute link</h3>
+        <li>Syntax:</li>
+        <p>&lt;p&gt;Link to a different website: &lt;a href="http://www.google.ca"&gt;www.google.ca&lt;/a&gt;&lt;/p&gt;
+        </p>
+        <li>Output:</li>
+        <p>Link to a different website: <a href="http://www.google.ca">www.google.ca</a></p>
+        <h3>a) Relative link</h3>
+        <li>Syntax:</li>
+        <p>&lt;p&gt;Link to a different page on the same website: &lt;a
+            href="../Lab1/index.html"&gt;Lab1&lt;/a&gt;&lt;/p&gt;</p>
+        <li>Output:</li>
+        <p>Link to a different page on the same website: <a href="../Lab1/index.html">Lab1</a></p>
+        <h3>a) E-mail hyperlink</h3>
+        <li>Syntax:</li>
+        <p>&lt;p&gt;Link to mail program connected with browser or a message is displayed: &lt;a
+            href="mailto:me@gmail.com"&gt;me@gmail.com&lt;/a&gt;&lt;/p&gt;</p>
+        <li>Output:</li>
+        <p>Link to mail program connected with browser or a message is displayed: <a
+                href="mailto:me@gmail.com">me@gmail.com</a></p>
+    </ul>
+    </ul>
+    <hr>
+    <p><strong>9. Meter Element:</strong></p>
+    <ul>
+        <li>Syntax:</li>
+        <p>
+            &lt;meter value ="100" min="0" max="100"&gt;Max 100.&lt;/meter&gt;<br>
+            &lt;meter value ="50" min="0" max="100"&gt;Max 50.&lt;/meter&gt;<br>
+            &lt;meter value ="10" min="0" max="100"&gt;Max 10.&lt;/meter&gt;
+        </p>
+        <li>Output:</li>
+        <p>This is a paragraph.</p>
+        <meter value="100" min="0" max="100">Max 100.</meter>
+        <meter value="50" min="0" max="100">Max 50.</meter>
+        <meter value="10" min="0" max="100">Max 10.</meter>
+    </ul>
+    <hr>
+    <p><strong>10. Progress Element:</strong></p>
+    <ul>
+        <li>Syntax:</li>
+        <p>&lt;progress value="700" max="1000"&gt;700&lt;/progress&gt;</p>
+        <li>Output:</li>
+        <progress value="700" max="1000">700</progress>
+    </ul>
+    <hr>
+    <p><strong>11. Datalist Control:</strong></p>
+    <ul>
+        <li>Syntax:</li>
+        <p>
+            &lt;label for="fruit"&gt;Fruit&lt;/label&gt;<br>
+            &lt;input type="text" name="fruit" id="fruit list="fruits"&gt;<br>
+            &lt;datalist id="fruits"&gt;<br>
+            &lt;option value="Peaches"&gt;<br>
+            &lt;option value="Apples"&gt;<br>
+            &lt;option value="Pears"&gt;<br>
+            &lt;/datalist&gt;
+        </p>
+        <li>Output:</li>
+        <label for="fruit">Fruit</label>
+        <input type="text" name="fruit" id="fruit list=" fruits">
+        <datalist id="fruits">
+            <option value="Peaches">
+            <option value="Apples">
+            <option value="Pears">
+        </datalist>
+    </ul>
+    <hr>
+    <p><strong>12. Slider Control:</strong></p>
+    <ul>
+        <li>Syntax:</li>
+        <p>
+            &lt;label for="Hunger"&gt;<br>
+            Express how hungry you are between 1 and 10&lt;br&gt;<br>
+            Low&lt;input type="range" name="myChoice" id="Hunger" min="1" max="10"&gt;High<br>
+            &lt;/label&gt;
+        </p>
+        <li>Output:</li>
+        <label for="Hunger">
+            Express how hungry you are between 1 and 10<br>
+            Low<input type="range" name="myChoice" id="Hunger" min="1" max="10">High
+        </label>
+    </ul>
+    <hr>
+    <p><strong>13. Calendar Control:</strong></p>
+    <ul>
+        <li>Syntax:</li>
+        <p>
+            &lt;label for="theDate"&gt;What day?&lt;/label&gt;<br>
+            &lt;input type="date" name="theDate" id="theDate"&gt;
+        </p>
+        <li>Output:</li>
+        <label for="theDate">What day?</label>
+        <input type="date" name="theDate" id="theDate">
+    </ul>
+</body>
+
+</html>

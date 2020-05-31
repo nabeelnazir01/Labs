@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 /**
  * This class contains the dynamically allocated array and it's processing
- * Student Name: Nabeel Nazir Student Number: 040974403 Course: CST8130 - Data Structures :
- * CET-CS-Level 3
+ * Student Name: Nabeel Nazir Student Number: 040974403 Course: CST8130 - Data
+ * Structures : CET-CS-Level 3
  * 
  * @author/Professor James Mwangi PhD.
  * @author Linda Crane
@@ -11,6 +11,12 @@ import java.util.Scanner;
  */
 
 public class Lab1 {
+
+	public static void displayMainMenu() {
+		System.out.println("Please select one of the following:\n1: Initialize a default array\n"
+				+ "2: To specify the max size of the array\n3: Add value to the array\n"
+				+ "4: Display values in the array\n5: Display the average of the values\n6: To Exit");
+	}
 
 	/**
 	 * @param args
@@ -20,9 +26,7 @@ public class Lab1 {
 		Scanner scan = new Scanner(System.in);
 		String user = "";
 		while (!user.equals("6")) {
-			System.out.println("Please select one of the following:\n1: Initialize a default array\n"
-					+ "2: To specify the max size of the array\n3: Add value to the array\n"
-					+ "4: Display values in the array\n5: Display the average of the values\n6: To Exit");
+			displayMainMenu();
 			user = scan.nextLine();
 			switch (user) {
 				case "1":
