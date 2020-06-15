@@ -1,0 +1,12 @@
+objects = main.o commands.o tools.o users.o
+
+lab3 : $(objects)
+	gcc -o lab3 $(objects) -g -w -ansi -pedantic -Wall
+
+main.o : tools.h commands.h users.h
+commands.o : defs.h commands.h
+tools.o : defs.h tools.h
+users.o : users.h
+
+clean : 
+	rm lab3 $(objects)

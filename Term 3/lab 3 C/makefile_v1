@@ -1,0 +1,13 @@
+lab3 : main.o commands.o tools.o users.o
+	gcc -o lab3 main.o commands.o tools.o users.o -g -w -ansi -pedantic -Wall
+
+main.o : main.c tools.h commands.h users.h
+	gcc -c main.c
+commands.o : commands.c defs.h commands.h
+	gcc -c commands.c
+tools.o : tools.c defs.h tools.h
+	gcc -c tools.c
+users.o : users.c users.h
+	gcc -c users.c
+clean : 
+	rm lab3 main.o commands.o tools.o users.o 
