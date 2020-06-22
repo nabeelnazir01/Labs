@@ -1,5 +1,12 @@
 import java.util.Scanner;
 
+/**
+ * This is a basic inventory system for a produce stand.
+ * 
+ * @author Nabeel Nazir (040974403) Assignement 1 June 20th 2020
+ * @version 1.0
+ * @since 1.8
+ */
 public class Assign1 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -18,12 +25,10 @@ public class Assign1 {
                 case "3":
                     if (!inventory.updateQuantity(scan, true))
                         System.out.println("Error...could not buy item!");
-                    scan.nextLine();
                     break;
                 case "4":
                     if (!inventory.updateQuantity(scan, false))
                         System.out.println("Error...could not sell item!");
-                    scan.nextLine();
                     break;
                 case "5":
                     System.out.println("Bye!");
@@ -35,6 +40,9 @@ public class Assign1 {
         }
     }
 
+    /**
+     * Displays the main menu
+     */
     public static void displayMenu() {
         System.out.println("Please select one of the following:\n" + "1: Add Item to Inventory\n"
                 + "2: Display Current Inventory\n" + "3: Buy Item(s)\n" + "4: Sell Item(s)\n" + "5: To Exit");

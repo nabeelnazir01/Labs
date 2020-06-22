@@ -1,22 +1,36 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Inventory {
     private FoodItem[] inventory;
     private int numItems;
 
+    /**
+     * Default constructor for Inventory
+     */
     public Inventory() {
         inventory = new FoodItem[20];
         numItems = 0;
     }
 
+    /**
+     * @return String value of all foods in inventory
+     */
     public String toString() {
         String foods = "";
         for (int i = 0; i < numItems; i++) {
             foods += "\n" + inventory[i];
         }
-        return "Inventory:"+foods;
+        return "Inventory:" + foods;
     }
 
+    /**
+     * Finds FoodItem that has same item code as the one passed through. If not
+     * found it will return -1.
+     * 
+     * @param item FoodItem being located
+     * @return int which is position of food item that has same item code
+     */
     public int alreadyExists(FoodItem item) {
         int position = -1;
         for (int i = 0; i < numItems; i++) {
@@ -27,6 +41,13 @@ public class Inventory {
         return position;
     }
 
+    /**
+     * Makes a new object for food item type and checks if already exists and then
+     * uses addItem food method to add new item.
+     * 
+     * @param scanner user input
+     * @return boolean if it was successful
+     */
     public boolean addItem(Scanner scanner) {
         System.out.println("Do you wish to add a fruit(f), vegetable(v) or a preserve(p)?");
         String user = scanner.next();
@@ -65,16 +86,37 @@ public class Inventory {
         return false;
     }
 
+    /**
+     * Adds or subtracts from item quantity depending on buy and sell
+     * 
+     * @param scanner   reads user input
+     * @param buyOrSell Will be true if buy, false if sell
+     * @return boolean that says if it was successful or not
+     */
     public boolean updateQuantity(Scanner scanner, boolean buyOrSell) {
+        int amount;
         if (numItems == 0)
             return false;
+        int code;
         System.out.println("Enter a code: ");
-        int code = scanner.nextInt();
+        try {
+            code = scanner.nextInt();
+            scanner.nextLine();
+        } catch (InputMismatchException e) {
+            scanner.nextLine();
+            return false;
+        }
         String word = buyOrSell ? "Buy" : "Sell";
         for (int i = 0; i < numItems; i++) {
             if (inventory[i].itemCode == code) {
                 System.out.println("Enter quantity to " + word + ": ");
-                int amount = scanner.nextInt();
+                try {
+                    amount = scanner.nextInt();
+                    scanner.nextLine();
+                } catch (Exception e) {
+                    scanner.nextLine();
+                    return false;
+                }
                 if (amount < 0) {
                     System.out.println("Invalid quantity...");
                     return false;

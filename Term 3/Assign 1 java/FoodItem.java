@@ -2,12 +2,15 @@ import java.util.Scanner;
 import java.util.regex.*;
 
 public class FoodItem {
-    int itemCode;
-    String itemName;
-    float itemPrice;
-    int itemQuantityInStock;
-    float itemCost;
+    protected int itemCode;
+    protected String itemName;
+    protected float itemPrice;
+    protected int itemQuantityInStock;
+    protected float itemCost;
 
+    /**
+     * Default constructor for FoodItem
+     */
     public FoodItem() {
         itemCode = 0;
         itemName = "";
@@ -16,10 +19,20 @@ public class FoodItem {
         itemCost = 0;
     }
 
+    /**
+     * @return String value of all instance variables of FoodItem which gets
+     *         overridden.
+     */
     public String toString() {
         return null;
     }
 
+    /**
+     * Updates stock of Item
+     * 
+     * @param amount how much is being added
+     * @return boolean if successful or not
+     */
     public boolean updateItem(int amount) {
         if (itemQuantityInStock + amount >= 0) {
             itemQuantityInStock += amount;
@@ -29,6 +42,12 @@ public class FoodItem {
         return false;
     }
 
+    /**
+     * Checks if two FoodItems have the same ItemCode
+     * 
+     * @param item FoodItem being compared to another
+     * @return boolean if successful or not
+     */
     public boolean isEqual(FoodItem item) {
         if (item.itemCode == this.itemCode) {
             return true;
@@ -36,6 +55,13 @@ public class FoodItem {
         return false;
     }
 
+    /**
+     * Asks for all of the values for name, quantity, cost and sales all with error
+     * checking.
+     * 
+     * @param scanner user input
+     * @return boolean if successful or not
+     */
     public boolean addItem(Scanner scanner) {
         Pattern pattern2 = Pattern.compile("\\d+");
         Pattern pattern3 = Pattern.compile("(\\d+)?(\\.\\d+)?");
@@ -66,6 +92,13 @@ public class FoodItem {
         return true;
     }
 
+    /**
+     * For entering the code for the item being added which will be checked after to
+     * see if its already in inventory.
+     * 
+     * @param scanner for user input
+     * @return boolean if successful or not
+     */
     public boolean inputCode(Scanner scanner) {
         Pattern pattern = Pattern.compile("^-?\\d+");
         System.out.println("Enter the code for the item: ");
