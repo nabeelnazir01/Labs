@@ -7,7 +7,8 @@ body {
     font-family: BebasNeue;
     text-align: center;
     font-size: 15px;
-    background-color: white;
+    background-color: rgb(41, 43, 44);
+    color: white;
 }
 
 h3 {
@@ -39,23 +40,23 @@ table, th, td {
 
 #Head {
     border: solid black;
-    background-color: #e8f9fd;
+    background-color: #241212;
 }
 
 #Menu {
     border: solid black;
     border-width: 3px 0 0 3px;
-    background-color: #ff1e00; 
+    background-color: #582b25; 
 }
 
 #Content {
     border: solid black;
-    background-color: #e8f9fd;
+    background-color: #241212;
 }
 
 #Footer {
     border: solid black;
-    background-color: #e8f9fd;
+    background-color: #241212;
 }
 
 /* Dropdown Button */
