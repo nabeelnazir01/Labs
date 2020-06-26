@@ -26,9 +26,9 @@ public class Lab4 {
             user = scan.nextLine();
             if (!user.equals("exit")) {
                 if (isPalindrome(user))
-                    System.out.println("Is palindrome");
+                    System.out.println("The word "+user+" is a palindrome");
                 else
-                    System.out.println("Is not palindrome");
+                    System.out.println("The word "+user+" is not a palindrome");
                 wordCompare = "";
                 position = 1;
             }

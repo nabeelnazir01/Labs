@@ -1,0 +1,190 @@
+Script started on 2020-06-26 19:30:51-04:00 [TERM="xterm-256color" TTY="/dev/tty3" COLUMNS="132" LINES="14"]
+]0;nabeelnazir@DESKTOP-IIL5FS0: /mnt/c/Users/nab6/Documents/Programming/Labs/Term 3/Assignment 1 C[01;32mnabeelnazir@DESKTOP-IIL5FS0[00m:[01;34m/mnt/c/Users/nab6/Documents/Programming/Labs/Term 3/Assignment 1 C[00m$ ./Assignement1.exe
+Please enter the number of students you wish to enter 
+3
+Please enter student id for student 1 
+12345
+Please enter student id for student 2 
+34567
+Please enter student id for student 3 
+56789
+[12345, 34567, 56789]
+Please enter the number of courses you wish to enter 
+2
+Please enter course code for course 1 
+CST8234
+Please enter course code for course 2 
+CST8288
+[CST8234, CST8288]
+Please select one of the following options.
+1) Add student to a course
+2) Remove student from a course
+3) See registration table
+4) Quit
+2
+Please enter student ID 
+12345
+Please enter course code 
+CST8234
+[ [ 0, -1 ], [ -1, -1 ], [ -1, -1 ] ]
+Please select one of the following options.
+1) Add student to a course
+2) Remove student from a course
+3) See registration table
+4) Quit
+1
+Please enter student ID 
+12345
+Please enter course code 
+CST8288
+[ [ 0, 1 ], [ -1, -1 ], [ -1, -1 ] ]
+Please select one of the following options.
+1) Add student to a course
+2) Remove student from a course
+3) See registration table
+4) Quit
+1
+Please enter student ID 
+34567
+Please enter course code 
+CST8234
+[ [ 0, 1 ], [ 1, -1 ], [ -1, -1 ] ]
+Please select one of the following options.
+1) Add student to a course
+2) Remove student from a course
+3) See registration table
+4) Quit
+1
+Please enter student ID 
+34567
+Please enter course code 
+CST8288
+[ [ 0, 1 ], [ 1, 1 ], [ -1, -1 ] ]
+Please select one of the following options.
+1) Add student to a course
+2) Remove student from a course
+3) See registration table
+4) Quit
+1
+Please enter student ID 
+56789
+Please enter course code 
+CST8234
+[ [ 0, 1 ], [ 1, 1 ], [ 1, -1 ] ]
+Please select one of the following options.
+1) Add student to a course
+2) Remove student from a course
+3) See registration table
+4) Quit
+2
+Please enter student ID 
+56789
+Please enter course code 
+CST8288
+[ [ 0, 1 ], [ 1, 1 ], [ 1, 0 ] ]
+Please select one of the following options.
+1) Add student to a course
+2) Remove student from a course
+3) See registration table
+4) Quit
+3
+[ [ 0, 1 ], [ 1, 1 ], [ 1, 0 ] ]
+Please select one of the following options.
+1) Add student to a course
+2) Remove student from a course
+3) See registration table
+4) Quit
+1
+Please enter student ID 
+11223
+Student id is not in the database
+[ [ 0, 1 ], [ 1, 1 ], [ 1, 0 ] ]
+Please select one of the following options.
+1) Add student to a course
+2) Remove student from a course
+3) See registration table
+4) Quit
+1
+Please enter student ID 
+12345
+Please enter course code 
+cst8234
+Course code is not in the database
+Student id is not in the database
+[ [ 0, 1 ], [ 1, 1 ], [ 1, 0 ] ]
+Please select one of the following options.
+1) Add student to a course
+2) Remove student from a course
+3) See registration table
+4) Quit
+1
+Please enter student ID 
+12345
+Please enter course code 
+CST8234
+[ [ 1, 1 ], [ 1, 1 ], [ 1, 0 ] ]
+Please select one of the following options.
+1) Add student to a course
+2) Remove student from a course
+3) See registration table
+4) Quit
+2
+Please enter student ID 
+34566
+Student id is not in the database
+[ [ 1, 1 ], [ 1, 1 ], [ 1, 0 ] ]
+Please select one of the following options.
+1) Add student to a course
+2) Remove student from a course
+3) See registration table
+4) Quit
+1
+Please enter student ID 
+34567
+Please enter course code 
+cst8288
+Course code is not in the database
+Student id is not in the database
+[ [ 1, 1 ], [ 1, 1 ], [ 1, 0 ] ]
+Please select one of the following options.
+1) Add student to a course
+2) Remove student from a course
+3) See registration table
+4) Quit
+2
+Please enter student ID 
+34567
+Please enter course code 
+CST8244  88
+[ [ 1, 1 ], [ 1, 0 ], [ 1, 0 ] ]
+Please select one of the following options.
+1) Add student to a course
+2) Remove student from a course
+3) See registration table
+4) Quit
+3
+[ [ 1, 1 ], [ 1, 0 ], [ 1, 0 ] ]
+Please select one of the following options.
+1) Add student to a course
+2) Remove student from a course
+3) See registration table
+4) Quit
+5
+Invalid input
+Please select one of the following options.
+1) Add student to a course
+2) Remove student from a course
+3) See registration table
+4) Quit
+0
+Invalid input
+Please select one of the following options.
+1) Add student to a course
+2) Remove student from a course
+3) See registration table
+4) Quit
+4
+Exiting]0;nabeelnazir@DESKTOP-IIL5FS0: /mnt/c/Users/nab6/Documents/Programming/Labs/Term 3/Assignment 1 C[01;32mnabeelnazir@DESKTOP-IIL5FS0[00m:[01;34m/mnt/c/Users/nab6/Documents/Programming/Labs/Term 3/Assignment 1 C[00m$ exit
+exit
+
+Script done on 2020-06-26 19:37:49-04:00 [COMMAND_EXIT_CODE="0"]
