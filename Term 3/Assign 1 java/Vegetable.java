@@ -14,8 +14,8 @@ public class Vegetable extends FoodItem {
      * @return String value of all instance variables of FoodItem.
      */
     public String toString() {
-        return "Item: " + itemCode + " " + itemName + " " + itemQuantityInStock + " price: $" + itemPrice + " cost: $"
-                + itemCost + " farm supplier: " + farmName;
+        return "Item: " + itemCode + " " + itemName + " " + itemQuantityInStock + " price: " + formatter.format(itemPrice) + " cost: "
+                + formatter.format(itemCost) + " farm supplier: " + farmName;
     }
 
     /**

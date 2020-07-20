@@ -11,10 +11,13 @@ public class Lab4 {
      * @return boolean if it is a palindrome or not
      */
     public static boolean isPalindrome(String word) {
+        //Checks if whole word has been added
         if ((word.length() - position) >= 0) {
+            //Adds letter to string backwards and calls back the method with updated position
             wordCompare += word.charAt(word.length() - position++);
             isPalindrome(word);
         }
+        //Returns if the word equals the same backwards
         return word.equalsIgnoreCase(wordCompare);
     }
 
@@ -26,9 +29,9 @@ public class Lab4 {
             user = scan.nextLine();
             if (!user.equals("exit")) {
                 if (isPalindrome(user))
-                    System.out.println("The word "+user+" is a palindrome");
+                    System.out.println("The word "+user+" IS a palindrome");
                 else
-                    System.out.println("The word "+user+" is not a palindrome");
+                    System.out.println("The word "+user+" IS NOT a palindrome");
                 wordCompare = "";
                 position = 1;
             }

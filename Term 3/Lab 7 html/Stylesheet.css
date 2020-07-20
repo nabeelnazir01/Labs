@@ -16,11 +16,7 @@ h3 {
 }
 
 h4 {
-    color: red;
-}
-
-p {
-    padding: 15px;
+    color: rgb(10, 124, 67);
 }
 
 a {
@@ -40,21 +36,21 @@ table, th, td {
 
 #Head {
     border: solid black;
-    background-color: #241212;
+    background-color: #17335d;
 }
 
 #Menu {
     border: solid black;
     border-width: 3px 0 0 3px;
-    background-color: #582b25; 
+    background-color: #d15c19; 
 }
 
 #Content {
     border: solid black;
-    background-color: #241212;
+    background-color: #17335d;
 }
 
 #Footer {
     border: solid black;
-    background-color: #241212;
+    background-color: #17335d;
 }

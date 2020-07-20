@@ -9,32 +9,45 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link href="Stylesheet.css" rel="stylesheet">
-    <title>Index</title>
+    <title>Prime</title>
 </head>
 
 <body class="px-3">
     <div id="Head">
         <div class="container-fluid">
             <div class="row justify-content-center mt-3">
-                <h1>Computer Engineering Technology - Computing Science<br>Web Programming</h1>
+                <?php include_once 'header.php'; ?>
             </div>
             <div class="row justify-content-end">
                 <div class="col-2" id=Menu>
-                    <h5><strong>Menu</strong></h5>
-                    <p><a href="index.html">Index</a></p>
+                    <?php include_once 'menu.php'; ?>
                 </div>
             </div>
         </div>
     </div>
     <div class="container-fluid mt-3" id="Content">
-
-    </div>
-    <div class="container-fluid mt-3" id="Footer">
-        <div class="row p-3">
-            <div class="col">
-                <p>040974403 Nabeel Nazir <a href="mailto:nazi0022@algonquinlive.com">nazi0022@algonquinlive.com</a></p>
-            </div>
-        </div>
+        <form method="POST">
+            <label>Range 1:</label>
+            <input type="number" name="Range1">
+            <label>Range 2:</label>
+            <input type="number" name="Range2">
+            <button type="submit" name="test">Submit</button>
+        </form>
+        <?php
+        if (array_key_exists('test', $_POST)) {
+            for ($i = $_POST["Range1"]; $i <= $_POST["Range2"]; $i++) {
+                $counter = 0;
+                for ($num = $i; $num >= 1; $num--) {
+                    if ($i % $num == 0) {
+                        $counter++;
+                    }
+                }
+                if ($counter == 2) {
+                    echo "<p>$i is a prime number</p>";
+                }
+            }
+        }
+        ?>
     </div>
 </body>
 

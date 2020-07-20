@@ -15,8 +15,8 @@ public class Preserve extends FoodItem {
      * @return String value of all instance variables of FoodItem.
      */
     public String toString() {
-        return "Item: " + itemCode + " " + itemName + " " + itemQuantityInStock + " price: $" + itemPrice + " cost: $"
-                + itemCost + " size: " + jarSize + "ml";
+        return "Item: " + itemCode + " " + itemName + " " + itemQuantityInStock + " price: " + formatter.format(itemPrice) + " cost: "
+                + formatter.format(itemCost) + " size: " + jarSize + "ml";
     }
 
     /**
