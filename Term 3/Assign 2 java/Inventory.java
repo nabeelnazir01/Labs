@@ -5,8 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Formatter;
+import java.util.Comparator;
 
-public class Inventory {
+public class Inventory implements Comparator<FoodItem> {
     private ArrayList<FoodItem> inventory = new ArrayList<FoodItem>();
 
     /**
@@ -36,8 +37,8 @@ public class Inventory {
      */
     public int alreadyExists(FoodItem item) {
         int position = -1;
-        for (int i = 0; i < 0; i++) {
-            if (item.isEqual(inventory.get(i))) {
+        for (int i = 0; i < inventory.size(); i++) {
+            if (item.itemCode == (inventory.get(i).itemCode) && i > 0) {
                 position = i;
             }
         }
@@ -49,54 +50,51 @@ public class Inventory {
      * uses addItem food method to add new item.
      * 
      * @param scanner user input
+     * @param fromFile if using file or not
      * @return boolean if it was successful
      */
     public boolean addItem(Scanner scanner, boolean fromFile) {
-        FoodItem newItemToAdd;
-        newItemToAdd = null;
         if (fromFile) {
-            newItemToAdd = getType(scanner.nextLine());
-            if (newItemToAdd == null) {
-
+            String type = scanner.nextLine();
+            // Checks which type of FoodItem
+            if (type.equals("f"))
+                inventory.add(0, new Fruit());
+            else if (type.equals("v"))
+                inventory.add(0, new Vegetable());
+            else if (type.equals("p"))
+                inventory.add(0, new Preserve());
+            // Gets input code
+            inventory.get(0).inputCode(scanner, true);
+            // Checks if code exists
+            if (alreadyExists(inventory.get(0)) != -1) {
+                System.out.println("Item code already exists");
+                inventory.remove(0);
                 return false;
             }
+            // Adds the rest of the values
+            inventory.get(0).addItem(scanner, true);
         } else {
             System.out.println("Do you wish to add a fruit(f), vegetable(v) or a preserve(p)?");
             String user = scanner.next();
-            switch (user.toUpperCase()) {
-                case "F":
-                    inventory.add(0, new Fruit());
-                    inventory.get(0).inputCode(scanner);
-                    if (alreadyExists(inventory.get(0)) != -1) {
-                        System.out.println("Item code already exists");
-                        return false;
-                    }
-                    inventory.get(0).addItem(scanner, false);
-                    return true;
-                case "V":
-                    inventory.add(0, new Vegetable());
-                    inventory.get(0).inputCode(scanner);
-                    if (alreadyExists(inventory.get(0)) != -1) {
-                        System.out.println("Item code already exists");
-                        return false;
-                    }
-                    inventory.get(0).addItem(scanner, false);
-                    return true;
-                case "P":
-                    inventory.add(0, new Preserve());
-                    inventory.get(0).inputCode(scanner);
-                    if (alreadyExists(inventory.get(0)) != -1) {
-                        System.out.println("Item code already exists");
-                        return false;
-                    }
-                    inventory.get(0).addItem(scanner, false);
-                    return true;
-                default:
-                    System.out.println("Invalid option!");
-                    this.addItem(scanner, false);
+            if (user.toUpperCase().equals("F"))
+                inventory.add(0, new Fruit());
+            else if (user.toUpperCase().equals("V"))
+                inventory.add(0, new Vegetable());
+            else if (user.toUpperCase().equals("P"))
+                inventory.add(0, new Preserve());
+            else {
+                System.out.println("Invalid option!");
+                this.addItem(scanner, false);
             }
-            return false;
+            inventory.get(0).inputCode(scanner, false);
+            if (alreadyExists(inventory.get(0)) != -1) {
+                System.out.println("Item code already exists");
+                inventory.remove(0);
+                return false;
+            }
+            inventory.get(0).addItem(scanner, false);
         }
+        inventory.sort(new Inventory());
         return true;
     }
 
@@ -144,6 +142,14 @@ public class Inventory {
         return false;
     }
 
+    /**
+     * Finds position of integer in array using binary search
+     * 
+     * @param l 1 of 2 integers to find middle of array.
+     * @param r 1 of 2 integers to find middle of array.
+     * @param x Number needed to be found.
+     * @return Integer of position of value in array. Will return -1 if not found.
+     */
     public int binarySearch(int l, int r, int x) {
         if (r >= l) {
             int mid = l + (r - l) / 2;
@@ -156,22 +162,53 @@ public class Inventory {
         return -1;
     }
 
+    /**
+     * Compares objects in array list by field
+     * 
+     * @param o1 First compare object
+     * @param o2 Second compare object
+     * @return result
+     */
+    @Override
+    public int compare(FoodItem o1, FoodItem o2) {
+        if (o2.itemCode < o1.itemCode)
+            return 1;
+        if (o2.itemCode > o1.itemCode)
+            return -1;
+        return 0;
+    }
+
+    /**
+     * Uses the binary search method to find a item with the same item code
+     * 
+     * @param scanner user input
+     */
     public void searchForItem(Scanner scanner) {
         System.out.println("Type in code");
+        // Uses binary search method to find position of item
         int result = binarySearch(0, inventory.size() - 1, scanner.nextInt());
+        // Checks if found
         if (result == -1)
             System.out.println("Element not present");
         else
+            // Prints item details
             System.out.println(inventory.get(result));
+        scanner.nextLine();
     }
 
+    /**
+     * Reads all values from inventory and adds to file
+     * 
+     * @param scanner Scanner for reading file
+     */
     public void saveToFile(Scanner scanner) {
         Formatter writer = null;
         try {
-            File outputTextFile = new File("Inventory.txt");
+            System.out.println("Enter the filename to save to: ");
+            File outputTextFile = new File(scanner.nextLine());
             writer = new Formatter(outputTextFile);
-            writer.format("%d", (int) inventory.size());
             for (FoodItem eachItem : inventory) {
+                // Checks what type of FoodItem it is and adds corressponding letter to file
                 if (eachItem instanceof Fruit) {
                     writer.format("%s", "f");
                 } else if (eachItem instanceof Vegetable) {
@@ -181,6 +218,7 @@ public class Inventory {
                 } else {
                     throw new InputMismatchException();
                 }
+                // Outputs the values to text file
                 eachItem.outputItem(writer);
                 writer.format("\n%s", "");
             }
@@ -198,22 +236,30 @@ public class Inventory {
         }
     }
 
+    /**
+     * Reads all values from file and adds to inventory
+     * 
+     * @param sc Scanner for reading file
+     */
     public void readFromFile(Scanner sc) {
-
         try {
-            File inputTextFile = new File("Inventory.txt");
+            System.out.println("Enter the filename to read from: ");
+            // Accesses file with file name from user
+            File inputTextFile = new File(sc.nextLine());
+            // Throw exception if file does not exists
             if (!inputTextFile.exists()) {
                 throw new FileNotFoundException();
             }
             System.out.println("Reading from file...");
             Scanner reader = new Scanner(inputTextFile);
-            int numOfItems = Integer.valueOf(reader.nextLine());
+            // If text file empty print a error
             if (!reader.hasNextLine()) {
                 System.out.println("ERROR: Empty text file");
                 reader.close();
                 return;
             }
-            for (int i = 0; i < numOfItems; i++) {
+            // Reads from text file until no more data
+            while(reader.hasNextLine()) {
                 if (!addItem(reader, true)) {
                     throw new InputMismatchException();
                 }
@@ -226,19 +272,4 @@ public class Inventory {
             System.out.println("Error Encountered while reading the file, aborting...");
         }
     }
-
-    private FoodItem getType(String itemType) {
-
-        switch (itemType) {
-            case "f":
-                return new Fruit();
-            case "p":
-                return new Preserve();
-            case "v":
-                return new Vegetable();
-            default:
-                return null;
-        }
-    }
-
 }

@@ -1,3 +1,10 @@
+<?php
+session_start();
+$values = array("eName", "eID", "tNum", "eAdd", "pos", "project");
+foreach ($values as $key) :
+    ${$key} = isset($_SESSION[$key]) ? $_SESSION[$key] : "Was not set by the form";
+endforeach;
+?>
 <!DOCTYPE html>
 <html>
 
@@ -27,17 +34,12 @@
     </div>
     <div class="container-fluid mt-3" id="Content">
         <?php
-        session_start();
-        $values = array("eName", "eID", "tNum", "eAdd", "pos", "project");
-        foreach ($values as $key) :
-            $_SESSION[$key] = isset($_SESSION[$key]) ? $_SESSION[$key] : "Was not set by the form";
-        endforeach;
-        echo "<p> Employee Name: " . $_SESSION["eName"] . "</p>";
-        echo "<p> Employee ID: " . $_SESSION["eID"] . "</p>";
-        echo "<p> Telephone Number: " . $_SESSION["tNum"] . "</p>";
-        echo "<p> Email Address: " . $_SESSION["eAdd"] . "</p>";
-        echo "<p> Position: " . $_SESSION["pos"] . "</p>";
-        echo "<p> Project: " . $_SESSION["project"] . "</p>";
+        echo "<p> Employee Name: " . $eName . "</p>";
+        echo "<p> Employee ID: " . $eID . "</p>";
+        echo "<p> Telephone Number: " . $tNum . "</p>";
+        echo "<p> Email Address: " . $eAdd . "</p>";
+        echo "<p> Position: " . $pos . "</p>";
+        echo "<p> Project: " . $project . "</p>";
         ?>
     </div>
     <div class="container-fluid mt-3" id="Footer">

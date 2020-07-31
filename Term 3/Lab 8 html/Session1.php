@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (isset($_POST['submit'])) {
+    $values = array("eName", "eID", "tNum", "eAdd", "pos", "project");
+    foreach ($values as $key) :
+        $_SESSION[$key] = $_POST[$key];
+    endforeach;
+    header('Location: Session2.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -57,17 +68,6 @@
             </select><br><br>
             <button type="submit" name="submit">Submit Information</button>
         </form>
-        <?php
-        session_start();
-        if (isset($_POST['submit'])) {
-            $values = array("eName", "eID", "tNum", "eAdd", "pos", "project");
-            foreach ($values as $key) :
-                $_SESSION[$key] = $_POST[$key];
-            endforeach;
-            header('Location: Session2.php');
-            exit;
-        }
-        ?>
     </div>
     <div class="container-fluid mt-3" id="Footer">
         <div class="row p-3">

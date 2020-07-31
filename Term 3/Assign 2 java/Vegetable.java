@@ -23,14 +23,15 @@ public class Vegetable extends FoodItem {
      * Adds item to inventory and calls super class plus the farm supplier specially
      * for this class.
      * 
+     * @param fromFile if using a file or not
      * @return boolean to see if successful
      */
     public boolean addItem(Scanner scanner, boolean fromFile) {
         if (fromFile) {
-
             if (!scanner.hasNextLine()) {
                 return false;
             }
+            super.addItem(scanner, true);
             farmName = scanner.nextLine();
             return true;
         } else {
@@ -42,6 +43,9 @@ public class Vegetable extends FoodItem {
         }
     }
 
+    /**
+     * Outputs farmName to file
+     */
     public void outputItem(Formatter writer) {
         super.outputItem(writer);
         writer.format("\n%s", farmName);

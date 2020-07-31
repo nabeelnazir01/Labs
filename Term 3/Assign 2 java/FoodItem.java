@@ -63,16 +63,18 @@ public class FoodItem {
      * checking.
      * 
      * @param scanner user input
+     * @param fromFile if using a file or not
      * @return boolean if successful or not
      */
     public boolean addItem(Scanner scanner, boolean fromFile) {
+        // If using file
         if (fromFile) {
-
             try {
+                // Adds all values to variables
                 itemName = scanner.nextLine();
                 itemQuantityInStock = Integer.valueOf(scanner.nextLine());
-                itemPrice = Float.valueOf(scanner.nextLine());
                 itemCost = Float.valueOf(scanner.nextLine());
+                itemPrice = Float.valueOf(scanner.nextLine());
                 return true;
             } catch (InputMismatchException x) {
                 System.out.println("ERROR: invalid file");
@@ -117,25 +119,36 @@ public class FoodItem {
      * see if its already in inventory.
      * 
      * @param scanner for user input
+     * @param fromFile if using file or not
      * @return boolean if successful or not
      */
-    public boolean inputCode(Scanner scanner) {
-        Pattern pattern = Pattern.compile("^-?\\d+");
-        System.out.println("Enter the code for the item: ");
-        String user = scanner.next();
-        while (!pattern.matcher(user).matches()) {
-            System.out.println("Invalid Code Try Again!\nEnter the code for the item: ");
-            user = scanner.next();
+    public boolean inputCode(Scanner scanner, boolean fromFile) {
+        if (fromFile)
+            itemCode = Integer.valueOf(scanner.nextLine());
+        else {
+            Pattern pattern = Pattern.compile("^-?\\d+");
+            System.out.println("Enter the code for the item: ");
+            String user = scanner.next();
+            while (!pattern.matcher(user).matches()) {
+                System.out.println("Invalid Code Try Again!\nEnter the code for the item: ");
+                user = scanner.next();
+            }
+            itemCode = Integer.parseInt(user);
         }
-        itemCode = Integer.parseInt(user);
         return true;
     }
 
+    /**
+     * Writes value from FoodItem to file
+     * 
+     * @param writer Format text onto file
+     */
     public void outputItem(java.util.Formatter writer) {
+        // Writes every value to file
         writer.format("\n%d", itemCode);
         writer.format("\n%s", itemName);
         writer.format("\n%d", itemQuantityInStock);
-        writer.format("\n%.2f", itemPrice);
         writer.format("\n%.2f", itemCost);
+        writer.format("\n%.2f", itemPrice);
     }
 }
