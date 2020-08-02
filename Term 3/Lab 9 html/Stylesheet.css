@@ -1,0 +1,51 @@
+@font-face {
+    font-family: BebasNeue;
+    src: url(BebasNeue-Regular.ttf);
+}
+
+body {
+    font-family: BebasNeue;
+    text-align: center;
+    font-size: 15px;
+    background-color: rgb(41, 43, 44);
+    color: white;
+}
+
+table {
+    margin: auto;
+}
+
+td {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+td
+{
+    padding:0 15px;
+}
+
+a {
+    color: rgb(86, 86, 245);
+    font-weight: bold;
+}
+
+#Head {
+    border: solid black;
+    background-color: #17335d;
+}
+
+#Menu {
+    border: solid black;
+    border-width: 3px 0 0 3px;
+    background-color: #d15c19; 
+}
+
+#Content {
+    border: solid black;
+    background-color: #17335d;
+}
+
+#Footer {
+    border: solid black;
+    background-color: #17335d;
+}
