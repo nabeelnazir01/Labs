@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link href="Stylesheet.css" rel="stylesheet">
-    <title>Session 1</title>
+    <title>Create Account</title>
 </head>
 
 <body class="px-3">
@@ -43,11 +43,7 @@
         </form>
         <?php
         if (isset($_POST['submit'])) {
-            $host = "localhost";
-            $username = "root";
-            $password = "";
-            $database = "lab9";
-            $conn = new mysqli($host, $username, $password, $database);
+            include 'AccountDetails.php';
             $name = $_POST["eName"];
             $lname = $_POST["eLName"];
             $email = $_POST["eAdd"];
@@ -56,13 +52,13 @@
             $pass = $_POST["pass"];
             $sql = "INSERT INTO Employee (FirstName, LastName, EmailAddress, TelephoneNumber, SocialInsuranceNumber, Password)
 VALUES ('$name', '$lname', '$email', '$phone', '$sin', '$pass')";
-            if ($conn->query($sql) === TRUE) {
-                echo "New record created successfully";
+            if ($connect->query($sql) === TRUE) {
+                echo "Account Created Successfully";
             } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
+                echo "Error: " . $sql . "<br>" . $connect->error;
             }
 
-            $conn->close();
+            $connect->close();
         }
         ?>
     </div>

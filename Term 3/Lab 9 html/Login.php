@@ -11,7 +11,7 @@ function test_input($data)
 
 $host = "localhost";
 $username = "root";
-$password = "";
+$password = "NibsOneal456";
 $database = "lab9";
 
 $invalid_login = False;
@@ -22,7 +22,7 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
     $_SESSION["email"] = $email = test_input($_POST["email"]);
     $_SESSION["pass"] = $pass = test_input($_POST["pass"]);
 
-    $connect = mysqli_connect($host, $username, $password, $database);
+    include 'AccountDetails.php';
 
     if ($connect == FALSE) {
         die("Connection Failed: " . mysqli_connect_error());
@@ -60,7 +60,7 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link href="Stylesheet.css" rel="stylesheet">
-    <title>Session 2</title>
+    <title>Login</title>
 </head>
 
 <body class="px-3">

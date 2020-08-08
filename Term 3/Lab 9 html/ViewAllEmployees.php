@@ -15,7 +15,7 @@ if ($_SESSION['valid_login'] != True) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link href="Stylesheet.css" rel="stylesheet">
-    <title>Session 1</title>
+    <title>All Employees</title>
 </head>
 
 <body class="px-3">
@@ -35,17 +35,17 @@ if ($_SESSION['valid_login'] != True) {
         <?php
         /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-        $link = mysqli_connect("localhost", "root", "", "lab9");
+        include 'AccountDetails.php';
 
         // Check connection
-        if ($link === false) {
+        if ($connect === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
 
         // Attempt select query execution
-        $sql = "SELECT * FROM employee";
+        $sql = "SELECT * FROM Employee";
         echo "<h3>Database Data</h3>";
-        if ($result = mysqli_query($link, $sql)) {
+        if ($result = mysqli_query($connect, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 echo "<table>";
                 echo "<tr>";
@@ -73,11 +73,11 @@ server with default setting (user 'root' with no password) */
                 echo "No records matching your query were found.";
             }
         } else {
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($connect);
         }
 
         // Close connection
-        mysqli_close($link);
+        mysqli_close($connect);
         ?>
     </div>
     <div class="container-fluid mt-3" id="Footer">

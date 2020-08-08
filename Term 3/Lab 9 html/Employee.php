@@ -9,7 +9,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link href="Stylesheet.css" rel="stylesheet">
-    <title>Session 1</title>
+    <script>
+function showUser(str) {
+  if (str == "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET","GetEmployee.php?q="+str,true);
+    xmlhttp.send();
+  }
+}
+</script>
+    <title>Employee</title>
 </head>
 
 <body class="px-3">
@@ -26,46 +43,27 @@
         </div>
     </div>
     <div class="container-fluid mt-3" id="Content">
-        <form method="POST">
-            <h3>Create your new account</h3>
-            <label>First Name</label><br>
-            <input type="text" name="eName" required><br>
-            <label>Last Name</label><br>
-            <input type="text" name="eLName" required><br>
-            <label>Email Address</label><br>
-            <input type="email" name="eAdd" required><br>
-            <label>Telephone Number</label><br>
-            <input type="tel" name="tNum" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required><br>
-            <label>SIN</label><br>
-            <input type="number" name="SIN" required><br>
-            <label>Password</label><br>
-            <input type="password" name="pass" required><br>
-            <button type="submit" name="submit">Submit Information</button>
-        </form>
-        <?php
-        if (isset($_POST['submit'])) {
-            $host = "localhost";
-            $username = "root";
-            $password = "";
-            $database = "lab9";
-            $conn = new mysqli($host, $username, $password, $database);
-            $name = $_POST["eName"];
-            $lname = $_POST["eLName"];
-            $email = $_POST["eAdd"];
-            $phone = $_POST["tNum"];
-            $sin = $_POST["SIN"];
-            $pass = $_POST["pass"];
-            $sql = "INSERT INTO Employee (FirstName, LastName, EmailAddress, TelephoneNumber, SocialInsuranceNumber, Password)
-VALUES ('$name', '$lname', '$email', '$phone', '$sin', '$pass')";
-            if ($conn->query($sql) === TRUE) {
-                echo "New record created successfully";
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
+    <form>
+<select name="users" onchange="showUser(this.value)">
+  <option value="">Select a person:</option>
+  <?php
+  include 'AccountDetails.php';
+    if (!$connect) {
+      die('Could not connect: ' . mysqli_error($connect));
+    }
+    $sql = "SELECT * FROM Employee";
+    if ($result = mysqli_query($connect, $sql)) {
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_array($result)) {
+                echo '<option value="' . $row['EmployeeId'] . '">' . $row['FirstName'] . ' ' . $row['LastName'] . '</option>';
             }
-
-            $conn->close();
         }
-        ?>
+    }
+  ?>
+  </select>
+</form>
+<br>
+<div id="txtHint"><b>Person info will be listed here...</b></div>
     </div>
     <div class="container-fluid mt-3" id="Footer">
         <div class="row p-3">

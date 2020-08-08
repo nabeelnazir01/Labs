@@ -17,6 +17,7 @@ public class Lab8 {
             if (ch == '3')
                 break;
             switch (ch) {
+                //Add a string
                 case '1':
                     System.out.println("Enter your string :");
                     String s = sr.next();
@@ -40,6 +41,7 @@ public class Lab8 {
                             System.out.println("String cannot be added");
                     }
                     break;
+                //Search for string
                 case '2':
                     System.out.println("Enter String to be searched");
                     String s1 = sr.next();
