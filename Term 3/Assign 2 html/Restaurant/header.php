@@ -21,6 +21,7 @@
                         <li><a href="menu.php">Menu</a></li>
                         <li><a href="contact.php">Contact</a></li>
                         <li><a href="mailing_list.php">List</a></li>
+                        <li><a href="internal.php">Internal</a></li>
                     </ul>
                 </div>
             </nav>

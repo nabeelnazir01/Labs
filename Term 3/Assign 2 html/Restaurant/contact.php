@@ -1,27 +1,3 @@
-<?php
-if (isset($_POST['submit'])) {
-    $host = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "lab9";
-    $conn = new mysqli($host, $username, $password, $database);
-    $name = $_POST["eName"];
-    $lname = $_POST["eLName"];
-    $email = $_POST["eAdd"];
-    $phone = $_POST["tNum"];
-    $sin = $_POST["SIN"];
-    $pass = $_POST["pass"];
-    $sql = "INSERT INTO Employee (FirstName, LastName, EmailAddress, TelephoneNumber, SocialInsuranceNumber, Password)
-VALUES ('$name', '$lname', '$email', '$phone', '$sin', '$pass')";
-    if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-
-    $conn->close();
-}
-?>
 <?php include("header.php"); ?>
 
 <div id="content" class="clearfix">
@@ -43,29 +19,29 @@ VALUES ('$name', '$lname', '$email', '$phone', '$sin', '$pass')";
             <table>
                 <tr>
                     <td>First Name:</td>
-                    <td><input type="text" name="customerfName" id="customerfName" size='40'></td>
+                    <td><input type="text" name="customerfName" id="customerfName" size='40' required></td>
                 </tr>
                 <tr>
                     <td>Last Name:</td>
-                    <td><input type="text" name="customerlName" id="customerlName" size='40'></td>
+                    <td><input type="text" name="customerlName" id="customerlName" size='40' required></td>
                 </tr>
                 <tr>
                     <td>Phone Number:</td>
-                    <td><input type="text" name="phoneNumber" id="phoneNumber" size='40'></td>
+                    <td><input type="tel" name="phoneNumber" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" id="phoneNumber" size='40' required></td>
                 </tr>
                 <tr>
                     <td>Email Address:</td>
-                    <td><input type="text" name="emailAddress" id="emailAddress" size='40'>
+                    <td><input type="email" name="emailAddress" id="emailAddress" size='40' required>
                 </tr>
                 <tr>
                     <td>Username:</td>
-                    <td><input type="text" name="username" id="username" size='20'>
+                    <td><input type="text" name="username" id="username" size='20' required>
                 </tr>
                 <tr>
                     <td>How did you hear<br> about us?</td>
                     <td>
-                        <select name="referral" size="1">
-                            <option>Select referer</option>
+                        <select name="referral" size="1" required>
+                            <option value="" selected hidden>Select referer</option>
                             <option value="newspaper">Newspaper</option>
                             <option value="radio">Radio</option>
                             <option value="tv">Television</option>
@@ -78,6 +54,26 @@ VALUES ('$name', '$lname', '$email', '$phone', '$sin', '$pass')";
                 </tr>
             </table>
         </form>
+        <?php
+        if (isset($_POST['btnSubmit'])) {
+            include 'db_config.php';
+            $name = $_POST["customerfName"];
+            $lname = $_POST["customerlName"];
+            $phone = $_POST["phoneNumber"];
+            $email = $_POST["emailAddress"];
+            $user = $_POST["username"];
+            $ref = $_POST["referral"];
+            $sql = "INSERT INTO mailingList (firstName, lastName, phoneNumber, emailAddress, userName, referrer)
+VALUES ('$name', '$lname', '$phone', '$email', '$user', '$ref')";
+            if ($conn->query($sql) === TRUE) {
+                echo "Account Created Successfully";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+
+            $conn->close();
+        }
+        ?>
     </div><!-- End Main -->
 </div><!-- End Content -->
 
